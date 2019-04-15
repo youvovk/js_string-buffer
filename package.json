@@ -1,8 +1,8 @@
 {
-  "name": "js-task-boilerplate",
+  "name": "string-buffer",
   "version": "1.0.0",
-  "description": "js task boilerplate",
-  "main": "src/sum.js",
+  "description": "String Buffer",
+  "main": "src/stringBuffer.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint **/*.js"
