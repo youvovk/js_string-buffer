@@ -2,14 +2,14 @@
 
 const makeBuffer = require('./stringBuffer');
 
-test('Works with one call', () => {
+test('Accumulates data when called once', () => {
   const buffer = makeBuffer();
   buffer('Simple string');
   expect(buffer())
     .toBe('Simple string');
 });
 
-test('Works with few calls', () => {
+test('Accumulates data when called multiple times', () => {
   const buffer = makeBuffer();
   buffer('abc');
   buffer('def');
@@ -18,7 +18,7 @@ test('Works with few calls', () => {
     .toBe('abcdefghi');
 });
 
-test('Works with whitespaces', () => {
+test('Accumulates whitespaces', () => {
   const buffer = makeBuffer();
   buffer('Simple string ');
   buffer('is buffered');
@@ -27,7 +27,7 @@ test('Works with whitespaces', () => {
     .toBe('Simple string is buffered well');
 });
 
-test('Works with numbers', () => {
+test('Accumulates numbers', () => {
   const buffer = makeBuffer();
   buffer('The breakfast at ');
   buffer(10);
@@ -36,7 +36,7 @@ test('Works with numbers', () => {
     .toBe('The breakfast at 10AM');
 });
 
-test('Many calls of buffer()', () => {
+test('Keeps accumulating data when buffer() is called multiple times', () => {
   const buffer = makeBuffer();
   buffer('a');
   buffer('a');
@@ -68,7 +68,7 @@ test('Many calls of buffer()', () => {
     .toBe('aaaaaaaaasdfaasdfaasdfaasdfaasdfaasdfaasdfaasdfaAM');
 });
 
-test('Works with 0 and empty string', () => {
+test('Accumulates 0 and empty string', () => {
   const buffer = makeBuffer();
   buffer('The breakfast at');
   buffer(' ');
